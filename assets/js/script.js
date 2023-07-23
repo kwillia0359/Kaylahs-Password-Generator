@@ -11,7 +11,7 @@ var generateBtn = document.querySelector("#generate");
     var NumericValues = "0123456789"
     var PasswordSymbols = "!@#$%^&*()-=+<>?/|':[]{}"
     var options = "";
-    var Keyselected = "";
+    var optionsSelected = "";
 
 //prompt user to create password meeting the length requirements
     var passwordLength = prompt(
@@ -39,20 +39,20 @@ var generateBtn = document.querySelector("#generate");
 // added for loop if criteria above is not met = false
     for (i = 0; i < passwordLength; i++) {
 
-// Final random password has generated
-        Keyselected += options[Math.floor(Math.random() * options.length)]
+// the math.random allows the final psudeocode to be ran to generate a random password based off the criteria we selected
+        optionsSelected += options[Math.floor(Math.random() * options.length)]
     }
-    return(Keyselected);
+    return(optionsSelected);
 }
 
-// Write password to the #password input. The text box area where the newly generated password will appear.
+
     var passwordText = document.querySelector("#password");
-    function writePassword(Keyselected) {
+    function writePassword(optionsSelected) {
     if (password.length === 0) {
         return;
     }
-    passwordText.value = Keyselected;
+    passwordText.value = optionsSelected;
 }
 
-// Add event listener this will actually allow the function being called to generate the password
+// Add event listener this will actually allow the function being called to generate the password. this actions makes sure that generate password happens.
     generateBtn.addEventListener("click", function () { writePassword(getPassword()) });
